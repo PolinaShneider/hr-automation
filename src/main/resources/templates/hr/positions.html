@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="hr/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(positions)}">
+        <h2>Positions List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Team Id</th>
+                <th>Requirements</th>
+                <th>Open</th>
+                <th>View</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="position : ${positions}">
+                <td th:text="${position.id}"><a href="/hr/position/${position.id}">id</a></td>
+                <td th:text="${position.teamId}">teamId</td>
+                <td th:text="${position.requirements}">requirements</td>
+                <td th:text="${position.opened}">opened</td>
+                <td><a th:href="${ '/hr/position/' + position.id}">View</a></td>
+                <td><a th:href="${'/hr/position/' + position.id + '/edit'}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="hr/header :: header"></th:block> /*/-->
+
+    <h2>Product Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${app}" th:action="@{/hr/application/}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{candidateId}"/>
+            <input type="hidden" th:field="*{positionId}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Application Id:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${app.id}">Position Id</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">PositionId Id:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${app.positionId}">teamId</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Candidate Id:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${app.candidateId}">candidateId</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Application status</label>
+                <div class="col-sm-10">
+                    <select th:field="*{status}">
+                        <option th:each="st : ${statuses}" th:value="${st}" th:text="${st}" th:selected="${st == app.status}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
