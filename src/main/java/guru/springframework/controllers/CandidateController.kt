@@ -1,8 +1,9 @@
 package guru.springframework.controllers
 
-import guru.springframework.domain.model.Application
-import guru.springframework.domain.model.Status
+import guru.springframework.domain.entities.Application
+import guru.springframework.domain.entities.Status
 import guru.springframework.services.application.ApplicationService
+import guru.springframework.services.hr.HrService
 import guru.springframework.services.position.PositionService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -15,14 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod
 class CandidateController {
     private var positionService: PositionService? = null
     private var applicationService: ApplicationService? = null
+    private var hrService: HrService? = null
 
     @Autowired
     fun setProductService(
         positionService: PositionService,
-        applicationService: ApplicationService
+        applicationService: ApplicationService,
+        hrService: HrService
     ) {
         this.applicationService = applicationService
         this.positionService = positionService
+        this.hrService = hrService
     }
 
     @RequestMapping(value = ["/candidate/"])
@@ -51,10 +55,12 @@ class CandidateController {
     }
 
     @RequestMapping(value = ["/candidate/application"], method = [RequestMethod.POST])
-    fun savePosition(application: Application): String {
+    fun newApplication(application: Application): String {
 
         application.status = Status.PENDING
         applicationService!!.saveApplication(application)
+
+        hrService!!.notifyMe(application.status, application.id!!)
 
         return "redirect:/candidate/application/" + application.id!!
     }

@@ -1,6 +1,6 @@
 package guru.springframework.services.team
 
-import guru.springframework.domain.model.Team
+import guru.springframework.domain.entities.Team
 import guru.springframework.repositories.TeamRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -10,7 +10,7 @@ class TeamServiceImpl : TeamService {
     private var teamRepository: TeamRepository? = null
 
     @Autowired
-    fun setProductRepository(teamRepository: TeamRepository) {
+    fun setRepository(teamRepository: TeamRepository) {
         this.teamRepository = teamRepository
     }
 

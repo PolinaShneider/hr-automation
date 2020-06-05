@@ -1,8 +1,6 @@
 package guru.springframework.services.application
 
-import guru.springframework.domain.model.Application
-import guru.springframework.domain.model.HR
-import guru.springframework.events.ApplicationCreatedEvent
+import guru.springframework.domain.entities.Application
 import guru.springframework.repositories.ApplicationRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -39,7 +37,6 @@ class ApplicationServiceImpl : ApplicationService {
     }
 
     override fun saveApplication(application: Application): Application {
-        publisher!!.publishEvent(ApplicationCreatedEvent(this, "ADD", application))
         return applicationRepository!!.save(application)
     }
 }

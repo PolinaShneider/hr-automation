@@ -1,4 +1,4 @@
-package guru.springframework.domain.model
+package guru.springframework.domain.entities
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -6,20 +6,18 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Application {
+class Interview {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Int? = null
     var candidateId: Int? = null
     var positionId: Int? = null
-    var status: Status = Status.DRAFT
+    var status: Status = Status.INTERVIEW_UPCOMING
+    var feedback: Feedback = Feedback.NONE
 }
 
-enum class Status {
-    DRAFT,
-    PENDING,
-    INTERVIEW_UPCOMING,
-    INTERVIEW_PASSED,
-    OFFER,
-    REJECT
+enum class Feedback {
+    ACCEPTED,
+    FAIL,
+    NONE
 }

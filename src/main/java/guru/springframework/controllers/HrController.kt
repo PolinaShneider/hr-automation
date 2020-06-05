@@ -1,9 +1,9 @@
 package guru.springframework.controllers
 
-import guru.springframework.domain.model.Application
-import guru.springframework.domain.model.Position
-import guru.springframework.domain.model.Status
+import guru.springframework.domain.entities.*
 import guru.springframework.services.application.ApplicationService
+import guru.springframework.services.candidate.CandidateService
+import guru.springframework.services.hr.HrService
 import guru.springframework.services.position.PositionService
 import guru.springframework.services.team.TeamService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,16 +18,22 @@ class HrController {
     private var positionService: PositionService? = null
     private var teamService: TeamService? = null
     private var applicationService: ApplicationService? = null
+    private var candidateService: CandidateService? = null
+    private var hrService: HrService? = null
 
     @Autowired
-    fun setProductService(
+    fun setServices(
         positionService: PositionService,
         teamService: TeamService,
-        applicationService: ApplicationService
+        applicationService: ApplicationService,
+        hrService: HrService,
+        candidateService: CandidateService
     ) {
         this.teamService = teamService
         this.positionService = positionService
         this.applicationService = applicationService
+        this.hrService = hrService
+        this.candidateService = candidateService
     }
 
     @RequestMapping(value = ["/hr/"])
@@ -94,6 +100,15 @@ class HrController {
 
     @RequestMapping(value = ["/hr/application"], method = [RequestMethod.POST])
     fun saveApplication(application: Application): String {
+
+        if (application.status == Status.INTERVIEW_UPCOMING) {
+            val interview = hrService!!.scheduleInterview(application.candidateId!!, application.positionId!!)
+            hrService!!.getAvailableInterviewer()?.notifyMe(
+                INTERVIEWER_ACTION.SHOULD_CONDUCT_INTERVIEW, interview.id
+            )
+        }
+
+        candidateService!!.notifyMe(application.candidateId!!, application.status)
 
         applicationService!!.saveApplication(application)
 

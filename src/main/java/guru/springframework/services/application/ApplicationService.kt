@@ -1,6 +1,6 @@
 package guru.springframework.services.application
 
-import guru.springframework.domain.model.Application
+import guru.springframework.domain.entities.Application
 
 
 interface ApplicationService {

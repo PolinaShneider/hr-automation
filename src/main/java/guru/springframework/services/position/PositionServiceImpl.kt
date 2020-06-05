@@ -1,7 +1,7 @@
 package guru.springframework.services.position
 
-import guru.springframework.domain.model.Position
-import guru.springframework.domain.model.Status
+import guru.springframework.domain.entities.Position
+import guru.springframework.domain.entities.Status
 import guru.springframework.repositories.PositionRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -32,9 +32,5 @@ class PositionServiceImpl : PositionService {
 
     override fun savePosition(position: Position): Position {
         return positionRepository!!.save(position)
-    }
-
-    override fun notifyMe(msg: Status) {
-        print(msg)
     }
 }

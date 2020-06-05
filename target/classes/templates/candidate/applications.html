@@ -14,12 +14,14 @@
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
+                <th>Candidate Id</th>
                 <th>Position Id</th>
                 <th>Status</th>
                 <th>View</th>
             </tr>
             <tr th:each="app : ${apps}">
                 <td th:text="${app.id}">id</td>
+                <td th:text="${app.candidateId}">candidateId</td>
                 <td th:text="${app.positionId}">teamId</td>
                 <td th:text="${app.status}">requirements</td>
                 <td><a th:href="${ '/candidate/application/' + app.id}">View</a></td>

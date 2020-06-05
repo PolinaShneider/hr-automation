@@ -1,6 +1,6 @@
 package guru.springframework.services.team
 
-import guru.springframework.domain.model.Team
+import guru.springframework.domain.entities.Team
 
 
 interface TeamService {

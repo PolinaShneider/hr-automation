@@ -1,7 +1,7 @@
 package guru.springframework.services.position
 
-import guru.springframework.domain.model.Position
-import guru.springframework.domain.model.Status
+import guru.springframework.domain.entities.Position
+import guru.springframework.domain.entities.Status
 
 
 interface PositionService {
@@ -12,6 +12,4 @@ interface PositionService {
     fun getPositionById(id: Int?): Position
 
     fun savePosition(position: Position): Position
-
-    fun notifyMe(msg: Status)
 }

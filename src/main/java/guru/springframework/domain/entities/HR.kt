@@ -1,4 +1,4 @@
-package guru.springframework.domain.model
+package guru.springframework.domain.entities
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="interviewer/header :: header"></th:block> /*/-->
+
+    <h2>Interview Details</h2>
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Position Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interview.positionId}">positionId</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Candidate id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interview.candidateId}">candidateId</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Status:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interview.status}">status</p>
+                    </div>
+                </div>
+                <a th:href="${'/interviewer/interview/' + interview.id + '/edit'}">Edit</a>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>
