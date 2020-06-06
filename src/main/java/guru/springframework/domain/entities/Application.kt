@@ -13,7 +13,6 @@ class Application {
     var candidateId: Int? = null
     var positionId: Int? = null
     var status: Status = Status.DRAFT
-    var interviewId: Int? = null
 }
 
 enum class Status {

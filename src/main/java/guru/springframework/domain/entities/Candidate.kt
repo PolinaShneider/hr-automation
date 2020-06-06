@@ -10,9 +10,9 @@ class Candidate(fullName: String = "", val experience: String = ""): User(fullNa
 
     fun notifyMe(status: Status) {
         when (status) {
-            Status.INTERVIEW_UPCOMING -> println("Hey-hey, you gonna have an interview")
-            Status.OFFER -> println("Oh, man, you've got offer")
-            Status.REJECT -> println("Sorry to hear that, reject")
+            Status.INTERVIEW_UPCOMING -> println("For candidate: Hey-hey, you gonna have an interview")
+            Status.OFFER -> println("For candidate: Oh, man, you've got offer")
+            Status.REJECT -> println("For candidate: Sorry to hear that, reject")
         }
     }
 }

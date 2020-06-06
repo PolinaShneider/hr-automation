@@ -11,15 +11,12 @@ import org.springframework.context.ApplicationEventPublisher
 @Service
 class ApplicationServiceImpl : ApplicationService {
     private var applicationRepository: ApplicationRepository? = null
-    private var publisher: ApplicationEventPublisher? = null
 
     @Autowired
     fun setApplicationRepository(
-        applicationRepository: ApplicationRepository,
-        publisher: ApplicationEventPublisher
+        applicationRepository: ApplicationRepository
     ) {
         this.applicationRepository = applicationRepository
-        this.publisher = publisher;
     }
 
     override fun listAllApplications(): Iterable<Application> {

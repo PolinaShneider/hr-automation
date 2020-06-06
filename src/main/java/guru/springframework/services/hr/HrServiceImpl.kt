@@ -25,9 +25,7 @@ class HrServiceImpl : HrService {
     }
 
     override fun getAvailableInterviewer(): Interviewer? {
-        return interviewersRepository!!.findAll().firstOrNull {
-            it.upcomingInterviewsIDs == null
-        }
+        return interviewersRepository!!.findAll().first()
     }
 
     override fun notifyMe(status: Status, applicationId: Int, feedback: Feedback) {
@@ -41,9 +39,9 @@ class HrServiceImpl : HrService {
 
             applicationsRepository!!.save(application)
 
-            println("Interview have passed, go to check feedback for application $applicationId")
+            println("For HR: Interview have passed, go to check feedback for application $applicationId")
         } else if (status == Status.PENDING) {
-            println("There is a new application")
+            println("For HR: There is a new application")
         }
     }
 

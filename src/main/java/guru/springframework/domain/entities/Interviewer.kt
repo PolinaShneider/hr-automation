@@ -12,14 +12,9 @@ class Interviewer(fullName: String = ""): User(fullName) {
     var id: Int? = null
     var upcomingInterviewsIDs: Int? = null
 
-    fun notifyMe(action: INTERVIEWER_ACTION, actionId: Int?) {
-        if (action == INTERVIEWER_ACTION.SHOULD_CONDUCT_INTERVIEW) {
-            this.upcomingInterviewsIDs = actionId
-        }
+    fun notifyMe(interviewId: Int?) {
+        this.upcomingInterviewsIDs = interviewId
+        println("For Interviewer: You have to conduct interview")
     }
 }
 
-enum class INTERVIEWER_ACTION {
-    SHOULD_CONDUCT_INTERVIEW,
-    CANDIDATE_ACCEPTED_OFFER
-}

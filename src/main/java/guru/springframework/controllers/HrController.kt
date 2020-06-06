@@ -104,7 +104,7 @@ class HrController {
         if (application.status == Status.INTERVIEW_UPCOMING) {
             val interview = hrService!!.scheduleInterview(application.candidateId!!, application.positionId!!)
             hrService!!.getAvailableInterviewer()?.notifyMe(
-                INTERVIEWER_ACTION.SHOULD_CONDUCT_INTERVIEW, interview.id
+                interview.id
             )
         }
 
