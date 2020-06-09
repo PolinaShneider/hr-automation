@@ -6,8 +6,6 @@ import guru.springframework.services.candidate.CandidateService
 import guru.springframework.services.hr.HrService
 import guru.springframework.services.interview.InterviewService
 import guru.springframework.services.interviewer.InterviewerService
-import guru.springframework.services.position.PositionService
-import guru.springframework.services.team.TeamService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -40,7 +38,7 @@ class InterviewerController {
 
     @RequestMapping(value = ["/interviewer/"])
     fun index(): String {
-        return "interviewer-index"
+        return "interviewer/index"
     }
 
     @RequestMapping(value = ["/interviewer/interviews"], method = [RequestMethod.GET])

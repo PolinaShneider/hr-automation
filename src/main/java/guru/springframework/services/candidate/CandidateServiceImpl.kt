@@ -24,4 +24,8 @@ class CandidateServiceImpl : CandidateService {
         val candidate = this.candidateRepository!!.findOne(candidateId) ?: throw Exception("No such candidate")
         candidate.notifyMe(status)
     }
+
+    override fun getCandidateName(candidateId: Int): String {
+        return this.candidateRepository!!.findOne(candidateId).fullName
+    }
 }

@@ -38,7 +38,7 @@ class HrController {
 
     @RequestMapping(value = ["/hr/"])
     fun index(): String {
-        return "hr-index"
+        return "hr/index"
     }
 
     @RequestMapping(value = ["/hr/positions"], method = [RequestMethod.GET])

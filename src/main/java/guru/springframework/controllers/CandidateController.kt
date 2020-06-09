@@ -31,7 +31,7 @@ class CandidateController {
 
     @RequestMapping(value = ["/candidate/"])
     fun index(): String {
-        return "candidate-index"
+        return "candidate/index"
     }
 
     @RequestMapping(value = ["/candidate/positions"], method = [RequestMethod.GET])

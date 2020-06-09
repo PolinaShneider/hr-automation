@@ -3,7 +3,7 @@ package guru.springframework.domain.entities
 import javax.persistence.*
 
 @Entity
-class Candidate(fullName: String = "", val experience: String = ""): User(fullName) {
+class Candidate(override var fullName: String = "", val experience: String = ""): User(fullName) {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Int? = null
