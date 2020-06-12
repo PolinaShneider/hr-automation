@@ -10,19 +10,13 @@
 <div class="container">
     <!--/*/ <th:block th:include="candidate/header :: header"></th:block> /*/-->
 
-    <h2>Application Details</h2>
+    <h2 class="text-center">Application Details</h2>
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Application Id:</label>
+                    <label class="col-sm-2 control-label">Position title:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${app.id}">Position Id</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">PositionId Id:</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${app.positionId}">teamId</p>
+                        <p class="form-control-static" th:text="${@positionServiceImpl.getPositionById(app.positionId).title}">teamId</p>
                     </div>
                 </div>
                 <div class="form-group">

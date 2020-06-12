@@ -56,10 +56,10 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
         teamRepository!!.save(teams)
 
         val positions = listOf(
-            positionBuilder.create(1, "Java"),
-            positionBuilder.create(1, "Ruby"),
-            positionBuilder.create(2, "CPP"),
-            positionBuilder.create(3, "JavaScript")
+            positionBuilder.create(1, "Java", "Senior Java Developer"),
+            positionBuilder.create(1, "Ruby", "Ruby Intern"),
+            positionBuilder.create(2, "CPP", "Backend C++ Developer"),
+            positionBuilder.create(3, "HTML, CSS, JavaScript", "Frontend JavaScript Developer")
         )
 
         positionRepository!!.save(positions)

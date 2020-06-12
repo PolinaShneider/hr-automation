@@ -5,6 +5,7 @@ import guru.springframework.domain.entities.Status
 import guru.springframework.services.application.ApplicationService
 import guru.springframework.services.hr.HrService
 import guru.springframework.services.position.PositionService
+import guru.springframework.services.team.TeamService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -17,16 +18,19 @@ class CandidateController {
     private var positionService: PositionService? = null
     private var applicationService: ApplicationService? = null
     private var hrService: HrService? = null
+    private var teamService: TeamService? = null
 
     @Autowired
     fun setProductService(
         positionService: PositionService,
         applicationService: ApplicationService,
-        hrService: HrService
+        hrService: HrService,
+        teamService: TeamService
     ) {
         this.applicationService = applicationService
         this.positionService = positionService
         this.hrService = hrService
+        this.teamService = teamService
     }
 
     @RequestMapping(value = ["/candidate/"])
@@ -36,6 +40,7 @@ class CandidateController {
 
     @RequestMapping(value = ["/candidate/positions"], method = [RequestMethod.GET])
     fun list(model: Model): String {
+        model.addAttribute("teams", teamService!!.listAllTeams())
         model.addAttribute("positions", positionService!!.listOpenPositions())
         return "candidate/positions"
     }
@@ -48,7 +53,7 @@ class CandidateController {
 
     @RequestMapping("/candidate/position/{id}/apply")
     fun newPositions(@PathVariable id: Int?, model: Model): String {
-        model.addAttribute("positionIds", positionService!!.listAllPositions().map { it.id })
+        model.addAttribute("positions", positionService!!.listAllPositions())
         model.addAttribute("selectedPositionId", id)
         model.addAttribute("app", Application())
         return "candidate/newapplication"

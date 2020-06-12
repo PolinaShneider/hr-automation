@@ -10,15 +10,15 @@
 <div class="container">
     <!--/*/ <th:block th:include="hr/header :: header"></th:block> /*/-->
 
-    <h2>Product Details</h2>
+    <h2 class="text-center">Position Details</h2>
     <div>
         <form class="form-horizontal" th:object="${position}" th:action="@{/hr/position}" method="post">
             <input type="hidden" th:field="*{id}"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Team Id:</label>
+                <label class="col-sm-2 control-label">Team:</label>
                 <div class="col-sm-10">
                     <select th:field="*{teamId}">
-                        <option th:each="teamId : ${teamsIds}" th:value="${teamId}" th:text="${teamId}" th:selected="${teamId==position.teamId}">
+                        <option th:each="team : ${@teamServiceImpl.listAllTeams()}" th:value="${team.id}" th:text="${team.teamName}" th:selected="${team.id == position.teamId}">
                         </option>
                     </select>
                 </div>

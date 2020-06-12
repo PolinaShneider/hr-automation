@@ -83,9 +83,9 @@ class HrController {
 
     @RequestMapping("/hr/position/new")
     fun newPositions(model: Model): String {
-        val teamsIds = teamService?.listAllTeams()?.map { it.id }
+        val teams = teamService?.listAllTeams()
 
-        model.addAttribute("teamsIds", teamsIds)
+        model.addAttribute("teams", teams)
         model.addAttribute("position", Position())
         return "hr/newposition"
     }

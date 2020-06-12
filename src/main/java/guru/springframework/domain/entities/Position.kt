@@ -1,6 +1,5 @@
 package guru.springframework.domain.entities
 
-import java.math.BigDecimal
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -13,6 +12,7 @@ class Position {
     var id: Int? = null
 
     var teamId: Int? = null
+    var title: String? = null
     var requirements: String? = null
     var isOpened: Boolean = true
 }

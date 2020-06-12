@@ -10,7 +10,7 @@
 <div class="container">
     <!--/*/ <th:block th:include="hr/header :: header"></th:block> /*/-->
 
-    <h2>Product Details</h2>
+    <h2 class="text-center">Application Details</h2>
     <div>
         <form class="form-horizontal" th:object="${app}" th:action="@{/hr/application/}" method="post">
             <input type="hidden" th:field="*{id}"/>

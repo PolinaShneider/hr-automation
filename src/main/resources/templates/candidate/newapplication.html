@@ -10,7 +10,7 @@
 <div class="container">
     <!--/*/ <th:block th:include="candidate/header :: header"></th:block> /*/-->
 
-    <h2>Application details</h2>
+    <h2 class="text-center">Application details</h2>
     <div>
         <form class="form-horizontal" th:object="${app}" th:action="@{/candidate/application}" method="post">
             <input type="hidden" th:field="*{id}"/>
@@ -25,9 +25,9 @@
                 <div class="col-sm-10">
                     <select th:field="*{positionId}">
                         <option
-                            th:each="posId : ${positionIds}"
-                            th:value="${posId}" th:text="${posId}"
-                            th:selected="${posId == selectedPositionId}"
+                            th:each="position : ${positions}"
+                            th:value="${position.id}" th:text="${position.id}"
+                            th:selected="${position.id == selectedPositionId}"
                         >
                         </option>
                     </select>

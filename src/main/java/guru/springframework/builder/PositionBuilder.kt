@@ -8,9 +8,11 @@ class PositionBuilder {
     fun create(
         teamId: Int,
         requirements: String,
+        title: String,
         isOpened: Boolean = true
     ): Position {
         val position = Position()
+        position.title = title
         position.requirements = requirements
         position.teamId = teamId
         position.isOpened = isOpened

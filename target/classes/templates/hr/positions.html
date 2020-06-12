@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Spring Framework Guru</title>
+    <title>Positions List</title>
 
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
@@ -10,10 +10,10 @@
 <div class="container">
     <!--/*/ <th:block th:include="hr/header :: header"></th:block> /*/-->
     <div th:if="${not #lists.isEmpty(positions)}">
-        <h2>Positions List</h2>
+        <h2 class="text-center">Positions List</h2>
         <table class="table table-striped">
             <tr>
-                <th>Id</th>
+                <th>Title</th>
                 <th>Team</th>
                 <th>Requirements</th>
                 <th>Open</th>
@@ -21,7 +21,7 @@
                 <th>Edit</th>
             </tr>
             <tr th:each="position : ${positions}">
-                <td th:text="${position.id}"><a href="/hr/position/${position.id}">id</a></td>
+                <td th:text="${position.title}"><a href="/hr/position/${position.id}">title</a></td>
                 <td th:text="${@teamServiceImpl.getTeamById(position.teamId).getTeamName()}">teamId</td>
                 <td th:text="${position.requirements}">requirements</td>
                 <td th:text="${position.opened}">opened</td>
