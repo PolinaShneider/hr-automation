@@ -53,7 +53,8 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
         val teams = listOf(
             teamBuilder.create("Hydra"),
             teamBuilder.create("Ginger"),
-            teamBuilder.create("Dot.com")
+            teamBuilder.create("Dot.com"),
+            teamBuilder.create("Iskra")
         )
 
         teamRepository!!.save(teams)
@@ -62,7 +63,8 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
             positionBuilder.create(1, "Java", "Senior Java Developer"),
             positionBuilder.create(1, "Ruby", "Ruby Intern"),
             positionBuilder.create(2, "CPP", "Backend C++ Developer"),
-            positionBuilder.create(3, "HTML, CSS, JavaScript", "Frontend JavaScript Developer")
+            positionBuilder.create(3, "HTML, CSS, JavaScript", "Frontend JavaScript Developer"),
+            positionBuilder.create(4, "Haskell", "God of Haskell")
         )
 
         positionRepository!!.save(positions)
