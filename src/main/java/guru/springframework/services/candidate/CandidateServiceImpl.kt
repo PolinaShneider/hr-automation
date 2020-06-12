@@ -20,6 +20,10 @@ class CandidateServiceImpl : CandidateService {
         this.applicationsRepository = applicationsRepository
     }
 
+    override fun worksInCompany(candidateId: Int?): Boolean {
+        return this.candidateRepository!!.findOne(candidateId).worksInCompany
+    }
+
     override fun notifyMe(candidateId: Int, status: Status) {
         val candidate = this.candidateRepository!!.findOne(candidateId) ?: throw Exception("No such candidate")
         candidate.notifyMe(status)

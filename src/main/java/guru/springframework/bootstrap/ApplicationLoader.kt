@@ -42,10 +42,13 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
         val teamBuilder = TeamBuilder()
 
 
-        val candidate = userBuilder
-                .createCandidate("Pedro", "Java")
+        val candidates = listOf(
+            userBuilder.createCandidate("Pedro", "Java", true),
+            userBuilder.createCandidate("Markus", "HTML, CSS", false),
+            userBuilder.createCandidate("Julia", "React", false)
+        )
 
-        candidateRepository!!.save(candidate)
+        candidateRepository!!.save(candidates)
 
         val teams = listOf(
             teamBuilder.create("Hydra"),
@@ -65,7 +68,8 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
         positionRepository!!.save(positions)
 
         val applications = listOf(
-            applicationBuilder.create(1,1, Status.PENDING)
+            applicationBuilder.create(1,1, Status.PENDING),
+            applicationBuilder.create(2,2, Status.PENDING)
         )
 
         this.applicationsRepository!!.save(applications)

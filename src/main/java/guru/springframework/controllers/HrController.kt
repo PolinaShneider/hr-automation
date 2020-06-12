@@ -49,7 +49,17 @@ class HrController {
 
     @RequestMapping(value = ["/hr/applications"], method = [RequestMethod.GET])
     fun listApplications(model: Model): String {
-        model.addAttribute("apps", applicationService!!.listAllApplications())
+        model.addAttribute("apps", applicationService!!.listAllApplications().filter {
+            !candidateService!!.worksInCompany(it.candidateId)
+        })
+        return "hr/applications"
+    }
+
+    @RequestMapping(value = ["/hr/rotation-applications"], method = [RequestMethod.GET])
+    fun listRotationApplications(model: Model): String {
+        model.addAttribute("apps", applicationService!!.listAllApplications().filter {
+            candidateService!!.worksInCompany(it.candidateId)
+        })
         return "hr/applications"
     }
 

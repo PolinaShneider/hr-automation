@@ -23,9 +23,10 @@ class UserBuilder {
 
     fun createCandidate(
         fullName: String,
-        experience: String
+        experience: String,
+        worksInCompany: Boolean
     ): Candidate {
-        return Candidate(fullName, experience)
+        return Candidate(fullName, experience, worksInCompany)
     }
 
     fun createHr(
