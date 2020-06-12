@@ -65,8 +65,7 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
         positionRepository!!.save(positions)
 
         val applications = listOf(
-            applicationBuilder.create(1,1, Status.PENDING),
-            applicationBuilder.create(2,1, Status.PENDING)
+            applicationBuilder.create(1,1, Status.PENDING)
         )
 
         this.applicationsRepository!!.save(applications)

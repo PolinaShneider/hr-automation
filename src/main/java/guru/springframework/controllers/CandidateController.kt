@@ -52,10 +52,11 @@ class CandidateController {
     }
 
     @RequestMapping("/candidate/position/{id}/apply")
-    fun newPositions(@PathVariable id: Int?, model: Model): String {
+    fun newPositions(@PathVariable id: Int, model: Model): String {
         model.addAttribute("positions", positionService!!.listAllPositions())
-        model.addAttribute("selectedPositionId", id)
-        model.addAttribute("app", Application())
+        val app = Application()
+        app.positionId = id
+        model.addAttribute("app", app)
         return "candidate/newapplication"
     }
 
@@ -63,6 +64,7 @@ class CandidateController {
     fun newApplication(application: Application): String {
 
         application.status = Status.PENDING
+        application.candidateId = 1
         applicationService!!.saveApplication(application)
 
         hrService!!.notifyMe(application.status, application.id!!)

@@ -21,7 +21,7 @@
             </tr>
             <tr th:each="app : ${apps}">
                 <td th:text="${@positionServiceImpl.getPositionById(app.positionId).title}">id</td>
-                <td th:text="${@teamServiceImpl.getTeamById(app.positionId).getTeamName()}">positionId</td>
+                <td th:text="${@teamServiceImpl.getTeamById(@positionServiceImpl.getPositionById(app.positionId).teamId).teamName}">positionId</td>
                 <td th:text="${@candidateServiceImpl.getCandidateName(app.candidateId)}">candidateId</td>
                 <td th:text="${app.status}">requirements</td>
                 <td><a th:href="${ '/hr/application/' + app.id}">View</a></td>

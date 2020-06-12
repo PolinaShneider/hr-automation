@@ -17,21 +17,21 @@
             <input type="hidden" th:field="*{candidateId}"/>
             <input type="hidden" th:field="*{positionId}"/>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Application Id:</label>
+                <label class="col-sm-2 control-label">Position:</label>
                 <div class="col-sm-10">
-                    <p class="form-control-static" th:text="${app.id}">Position Id</p>
+                    <p class="form-control-static" th:text="${@positionServiceImpl.getPositionById(app.positionId).title}">Position Id</p>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">PositionId Id:</label>
+                <label class="col-sm-2 control-label">Candidate Name:</label>
                 <div class="col-sm-10">
-                    <p class="form-control-static" th:text="${app.positionId}">teamId</p>
+                    <p class="form-control-static" th:text="${@candidateServiceImpl.getCandidateName(app.candidateId)}">candidateId</p>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Candidate Id:</label>
+                <label class="col-sm-2 control-label">Team:</label>
                 <div class="col-sm-10">
-                    <p class="form-control-static" th:text="${app.candidateId}">candidateId</p>
+                    <p class="form-control-static" th:text="${@teamServiceImpl.getTeamById(@positionServiceImpl.getPositionById(app.positionId).teamId).teamName}">teamId</p>
                 </div>
             </div>
             <div class="form-group">
