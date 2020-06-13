@@ -43,7 +43,7 @@ class ApplicationLoader : ApplicationListener<ContextRefreshedEvent> {
 
 
         val candidates = listOf(
-            userBuilder.createCandidate("Pedro", "Java", true),
+            userBuilder.createCandidate("Pedro", "Java", false),
             userBuilder.createCandidate("Markus", "HTML, CSS", false),
             userBuilder.createCandidate("Julia", "React", false)
         )
