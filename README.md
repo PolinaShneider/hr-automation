@@ -50,8 +50,7 @@
 Варианты использования для интервьюера
 
 ## Диаграммы последовательности
-![Sequence candidate](imgs/sequence_candidate.png)
-
+![Sequence candidate](imgs/sequence_candidate.png)<br>
 Диаграмма последовательности для кандидата
 
 ![Sequence hr](imgs/sequence_hr.png)
