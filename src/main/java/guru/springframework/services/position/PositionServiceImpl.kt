@@ -1,5 +1,6 @@
 package guru.springframework.services.position
 
+import guru.springframework.db.PositionData
 import guru.springframework.domain.entities.Position
 import guru.springframework.domain.entities.Status
 import guru.springframework.repositories.PositionRepository
@@ -17,7 +18,7 @@ class PositionServiceImpl : PositionService {
     }
 
     override fun listAllPositions(): Iterable<Position> {
-        return positionRepository!!.findAll()
+        return PositionData.getAllPositions()
     }
 
     override fun listOpenPositions(): Iterable<Position> {
