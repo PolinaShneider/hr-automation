@@ -12,7 +12,7 @@
 
     <h2 class="text-center">Application details</h2>
     <div>
-        <form class="form-horizontal" th:object="${app}" th:action="@{/candidate/application}" method="post">
+        <form class="form-horizontal" th:object="${app}" autocomplete="off" th:action="@{/candidate/application}" method="post">
             <input type="hidden" th:field="*{id}"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Position:</label>

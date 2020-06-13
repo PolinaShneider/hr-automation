@@ -12,7 +12,7 @@
 
     <h2 class="text-center">Position Details</h2>
     <div>
-        <form class="form-horizontal" th:object="${position}" th:action="@{/hr/position}" method="post">
+        <form class="form-horizontal" th:object="${position}" autocomplete="off" th:action="@{/hr/position}" method="post">
             <input type="hidden" th:field="*{id}"/>
             <input type="hidden" th:field="*{title}"/>
             <div class="form-group">

@@ -1,7 +1,6 @@
 package guru.springframework.db
 
 import guru.springframework.domain.entities.Position
-import java.sql.ResultSet
 
 
 object PositionData {
