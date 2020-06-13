@@ -51,6 +51,7 @@
 
 ## Диаграммы последовательности
 ![Sequence candidate](imgs/sequence_candidate.png)
+
 Диаграмма последовательности для кандидата
 
 ![Sequence hr](imgs/sequence_hr.png)
